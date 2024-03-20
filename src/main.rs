@@ -16,5 +16,5 @@ async fn main() {
 
 async fn handler() -> Html<&'static str> {
     println!("Request received\nSending response.");
-    Html("<h1>Hello from Rust!</h1>")
+    Html("<h1>ebobo experiment started</h1>")
 }
