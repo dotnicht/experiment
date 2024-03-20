@@ -1,22 +1,21 @@
-use axum::{handler::get, Router};
+use axum::{response::Html, routing::get, Router};
 use std::net::SocketAddr;
 
 #[tokio::main]
 async fn main() {
-    // Create a new Axum router
+    // build our application with a route
     let app = Router::new().route("/", get(handler));
 
-    // Define the handler function
-    async fn handler() -> &'static str {
-        "Hello, world!"
-    }
-
-    // Define the address to bind to
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
-
-    // Start the server
+    // run it
+    let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
+    println!("listening on {}", addr);
     axum::Server::bind(&addr)
         .serve(app.into_make_service())
         .await
         .unwrap();
+}
+
+async fn handler() -> Html<&'static str> {
+    println!("Request received\nSending response.");
+    Html("<h1>Hello from Rust!</h1>")
 }
