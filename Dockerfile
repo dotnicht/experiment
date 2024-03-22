@@ -15,7 +15,6 @@ ARG APP_NAME=experiment
 FROM rust:${RUST_VERSION}-alpine AS build
 ARG APP_NAME
 WORKDIR /app
-ENV DOCKER_BUILDKIT=1 
 
 # Install host build dependencies.
 RUN apk add --no-cache clang lld musl-dev git
