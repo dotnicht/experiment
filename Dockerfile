@@ -6,7 +6,7 @@
 
 # Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
 
-ARG RUST_VERSION=1.76.0
+ARG RUST_VERSION=1.77.0
 ARG APP_NAME=experiment
 
 ################################################################################
@@ -51,7 +51,7 @@ FROM alpine:3.19 AS final
 
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
-ARG UID=10001
+ARG UID=1488
 RUN adduser \
     --disabled-password \
     --gecos "" \
