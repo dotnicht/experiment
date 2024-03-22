@@ -9,7 +9,7 @@ WORKDIR /app
 
 RUN apk add --no-cache clang lld musl-dev git
 
-#COPY . /app
+COPY . /app
 
 RUN cargo build --locked --release && \
 cp ./target/release/$APP_NAME /bin/server
