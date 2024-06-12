@@ -1,8 +1,6 @@
 use axum::{response::Html, routing::get, Router};
 use std::net::SocketAddr;
 
-//mod grpc;
-
 #[tokio::main]
 async fn main() {
     let app = Router::new().route("/", get(handler));
