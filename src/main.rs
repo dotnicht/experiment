@@ -8,7 +8,7 @@ async fn main() {
     let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
     println!("listening on {}", addr);
     
-    axum::Server::bind(&addr)
+    axum_server::bind(addr)
         .serve(app.into_make_service())
         .await
         .unwrap();
